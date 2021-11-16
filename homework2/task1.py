@@ -7,6 +7,7 @@ Given a file containing text. Complete using only default collections:
     5) Find most common non ascii char for document
 """
 import re
+import unicodedata
 from typing import List
 
 
@@ -59,14 +60,15 @@ def count_punctuation_chars(file_path: str) -> int:
     with open(file_path, "r", encoding="unicode-escape",
               errors="replace") as file:
         for line in file:
-            line = re.findall(r'\W', line)
             for char in line:
+
+                if not unicodedata.category(char).startswith("P"):
+                    continue
+
                 if char in count_punc:
                     count_punc[char] += 1
                 else:
                     count_punc[char] = 1
-    if ' ' in count_punc:
-        del(count_punc[' '])
     return sum(count_punc.values())
 
 

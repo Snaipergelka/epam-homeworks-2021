@@ -24,7 +24,7 @@ def major_and_minor_elem(inp: List) -> Tuple[int, int]:
     # Check which element is most common and rarest
     common = 0
     result_common = 0
-    result_rare = 0
+    result_rare = inp[0]
     rare = count[inp[0]]
     for key in count:
         if count[key] >= (len(inp) // 2) and count[key] > common:

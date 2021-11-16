@@ -2,8 +2,11 @@ from homework2.task4 import cache
 
 
 def test_cache():
+    """Testing that cache function saves all results of func
+     and uses them in output"""
     def func(a, b):
         return (a ** b) ** 2
+
     cache_func = cache(func)
     some = 100, 200
     val_1 = cache_func(*some)
