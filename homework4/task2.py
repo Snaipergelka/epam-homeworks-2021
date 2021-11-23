@@ -9,7 +9,6 @@ In case of any network error raise ValueError("Unreachable {url}).
 from collections import Counter
 
 import requests
-from bs4 import BeautifulSoup
 
 
 def count_dots_on_i(url: str) -> int:
