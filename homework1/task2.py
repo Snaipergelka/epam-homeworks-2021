@@ -9,14 +9,15 @@ We guarantee, that the given sequence contain >= 0 integers inside.
 from typing import Sequence
 
 
+def fibonacci_gen():
+    i, j = 0, 1
+    while True:
+        yield i
+        i, j = j, i + j
+
+
 def check_fibonacci(data: Sequence[int]) -> bool:
-    if len(data) < 3:
-        return False
-    if data[0] != 0 or data[1] != 1:
-        return False
-    for d in range(len(data) - 1, 1, -1):
-        if data[d] < 0:
-            return False
-        if data[d] != data[d - 1] + data[d - 2]:
+    for our_element, original_element in zip(data, fibonacci_gen()):
+        if our_element != original_element:
             return False
     return True

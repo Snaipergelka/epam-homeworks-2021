@@ -10,10 +10,13 @@
         for line in fi:
             ...
 """
+from collections import namedtuple
 from typing import Tuple
 
 
 def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
+    result_tuple = namedtuple(typename='min_and_max',
+                              field_names=('minimum', 'maximum'))
     with open(file_name) as fi:
         ma = int(fi.readline())
         mi = ma
@@ -22,4 +25,4 @@ def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
                 ma = int(line)
             if int(line) < mi:
                 mi = int(line)
-    return mi, ma
+    return result_tuple(minimum=mi, maximum=ma)
