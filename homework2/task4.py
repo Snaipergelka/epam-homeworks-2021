@@ -16,10 +16,11 @@ from typing import Callable
 def cache(func: Callable) -> Callable:
     cache_dict = {}
 
-    def wrapped(*args):
-        if args in cache_dict:
-            return cache_dict[args]
-        result = func(*args)
-        cache_dict[args] = result
+    def wrapped(*args, **kwargs):
+        arg = (args, str(sorted(kwargs.items())))
+        if arg in cache_dict:
+            return cache_dict[arg]
+        result = func(*args, **kwargs)
+        cache_dict[arg] = result
         return result
     return wrapped
