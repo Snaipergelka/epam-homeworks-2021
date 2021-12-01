@@ -17,7 +17,7 @@ def check_sum_of_four(
         c: List[int],
         d: List[int]) -> int:
     # Calculate sums of elements from every tuple
-    sums_list = list(map(sum, product(a, b, c, d)))
+    sums_list = map(sum, product(a, b, c, d))
     # Filter zero values
     count = [num for num in sums_list if num == 0]
     return len(count)
