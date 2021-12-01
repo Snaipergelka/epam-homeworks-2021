@@ -10,15 +10,12 @@ import cProfile
 import re
 import string
 import unicodedata
-from collections import deque
 from typing import List
 
 
 class Token:
-    __slots__ = ["type", "value"]
 
-    def __init__(self, element_type, value):
-        self.type = element_type
+    def __init__(self, value):
         self.value = value
 
 
@@ -26,13 +23,12 @@ def tokenize(file_content: str):
     word_buffer = ''
     for line in file_content:
         for symbol in line:
-            if unicodedata.category(symbol).startswith('L'):
+            if unicodedata.category(symbol)[0] == 'L':
                 word_buffer += symbol
             else:
                 if word_buffer:
-                    yield Token(element_type="word", value=word_buffer)
+                    yield Token(value=word_buffer)
                     word_buffer = ''
-                yield Token(element_type="symbol", value=symbol)
 
 
 def open_file(file_path: str, encoding="UTF-8", errors="replace"):
@@ -43,21 +39,22 @@ def open_file(file_path: str, encoding="UTF-8", errors="replace"):
 
 def get_longest_diverse_words(file_path: str) -> List[str]:
     # 233818482 function calls (233818481 primitive calls) in 107.706 seconds
+    # 167606196 function calls (167606195 primitive calls) in 92.205 seconds
+    # 138328794 function calls (138328793 primitive calls) in 70.745 seconds
+    # 138328794 function calls (138328793 primitive calls) in 69.932 seconds
+    # 138328794 function calls (138328793 primitive calls) in 67.214 seconds
     d_words = {}
     for token in tokenize(open_file(file_path, encoding="unicode-escape")):
-        if token.type != "word":
-            continue
-        else:
-            # Count amount of every word's unique characters
-            d_chars = {}
-            for char in token.value.lower():
-                if char in d_chars:
-                    d_chars[char] += 1
-                else:
-                    d_chars[char] = 1
+        # Count amount of every word's unique characters
+        d_chars = {}
+        for char in token.value.lower():
+            if char in d_chars:
+                d_chars[char] += 1
+            else:
+                d_chars[char] = 1
 
-            # Count total sum of unique characters in word
-            d_words[token.value] = len([x for x in d_chars.values() if x == 1])
+        # Count total sum of unique characters in word
+        d_words[token.value] = len([x for x in d_chars.values() if x == 1])
 
     # Sort words in groups by amount of unique chars,
     # then sort in groups by length
