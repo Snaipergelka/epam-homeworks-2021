@@ -6,14 +6,14 @@ from homework2.task1 import (count_non_ascii_chars, count_punctuation_chars,
 
 
 @pytest.mark.parametrize("test_input,expected",
-                         [("tests/homework2/test_task1_cases/data_2.txt",
+                         [("test_task1_cases/data_2.txt",
                            [('exploration', 9), ('boulangerie', 9),
-                            ('bartholdi', 9), ('magnifique', 8),
+                            ('Bartholdi', 9), ('magnifique', 8),
                             ('pralines', 8), ('limonade', 8),
                             ('typiquement', 7), ('lyonnaise', 7),
                             ('croissant', 7), ('rejoint', 7)]),
-                          ("tests/homework2/test_task1_cases/data_3.txt",
-                           [('vorgebahnte', 9), ('betrachtung', 9),
+                          ("test_task1_cases/data_3.txt",
+                           [('vorgebahnte', 9), ('Betrachtung', 9),
                             ('ausführen', 9), ('vielmehr', 6),
                             ('verbirgt', 6), ('bedenkli', 6),
                             ('machen', 6), ('hinter', 6),
@@ -21,7 +21,7 @@ from homework2.task1 import (count_non_ascii_chars, count_punctuation_chars,
 def test_get_longest_diverse_words(test_input, expected):
     """Testing that function gives 10 longest and most unique
      words in list of tuples."""
-    assert get_longest_diverse_words(test_input) == expected
+    assert get_longest_diverse_words(test_input, encoding="unicode-escape") == expected
 
 
 @pytest.mark.parametrize("test_input,expected",
