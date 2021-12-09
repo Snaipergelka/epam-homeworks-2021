@@ -1,6 +1,5 @@
 from homework7.task1 import find_occurrences
 
-
 first_tmp = {
     "first": ["RED", "BLUE"],
     "second": {
