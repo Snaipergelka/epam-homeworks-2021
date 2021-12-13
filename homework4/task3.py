@@ -8,11 +8,16 @@ my_precious_logger("OK")
 # stdout
 'OK'
 """
+import logging
 import sys
 
 
 def my_precious_logger(text: str):
-    if text[0:5].lower() == 'error':
-        print(text, file=sys.stderr)
+    logging.basicConfig(level=logging.DEBUG, format="%(messages)s")
+    if text.lower().startswith('error'):
+        logging.error(text)
     else:
-        print('OK')
+        logging.info('OK')
+
+
+my_precious_logger('Error ')

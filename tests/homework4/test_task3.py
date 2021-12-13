@@ -8,7 +8,7 @@ def test_my_precious_logger_stdout(capsys):
     """
     my_precious_logger('Meow')
     captured = capsys.readouterr()
-    assert captured.out == 'OK\n' and captured.err == ''
+    assert captured.out == 'INFO:root:OK\n' and captured.err == ''
 
 
 def test_my_precious_logger_stderr(capsys):

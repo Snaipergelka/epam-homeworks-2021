@@ -8,7 +8,7 @@ from typing import List
 
 def fizzbuzz(n: int) -> List[str]:
     """
-        Testing that fizzbuzz function returns fizzbuzz sequence.
+            Testing that fizzbuzz function returns fizzbuzz sequence.
         >>> fizzbuzz(5)
         [1, 2, 'Fizz', 4, 'Buzz']
 
@@ -20,16 +20,8 @@ def fizzbuzz(n: int) -> List[str]:
         >>> fizzbuzz(-15)
         []
     """
-    if n < 1:
-        return []
-    numbers = []
-    for number in range(1, n+1):
-        if number % 15 == 0:
-            numbers.append('Fizz Buzz')
-        elif number % 3 == 0:
-            numbers.append('Fizz')
-        elif number % 5 == 0:
-            numbers.append('Buzz')
-        else:
-            numbers.append(number)
-    return numbers
+    return [("Fizz"*(not number%3) + "Buzz"*(not number%5) or number)
+            for number in range(1, n+1)]
+
+
+print(fizzbuzz(-15))

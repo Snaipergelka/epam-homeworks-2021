@@ -15,7 +15,7 @@ def count_dots_on_i(url: str) -> int:
     try:
         # scrape raw site
         website = requests.get(url)
-        # scrape site
+        # count chars and choose i-chars
         all_chars = Counter(str(website.content))
         return all_chars['i']
     except requests.exceptions.RequestException:

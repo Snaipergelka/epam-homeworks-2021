@@ -8,8 +8,6 @@ implementation in this video**.
 
 
 def fizzbuzz_gen(n):
-    current = 1
-    while current <= n:
-        yield (("Fizz"*(current % 3 == 0)) + ("Buzz"*(current % 5 == 0)))\
+    for current in range(1, n+1):
+        yield ("Fizz"*(current % 3 == 0) + "Buzz"*(current % 5 == 0))\
               or current
-        current += 1
