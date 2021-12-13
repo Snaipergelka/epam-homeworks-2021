@@ -9,5 +9,5 @@ implementation in this video**.
 
 def fizzbuzz_gen(n):
     for current in range(1, n+1):
-        yield ("Fizz"*(current % 3 == 0) + "Buzz"*(current % 5 == 0))\
+        yield "Fizz"*(current % 3 == 0) + "Buzz"*(current % 5 == 0)\
               or current

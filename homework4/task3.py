@@ -9,11 +9,9 @@ my_precious_logger("OK")
 'OK'
 """
 import logging
-import sys
 
 
 def my_precious_logger(text: str):
-    logging.basicConfig(level=logging.DEBUG, format="%(messages)s")
     if text.lower().startswith('error'):
         logging.error(text)
     else:

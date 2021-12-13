@@ -20,8 +20,5 @@ def fizzbuzz(n: int) -> List[str]:
         >>> fizzbuzz(-15)
         []
     """
-    return [("Fizz"*(not number%3) + "Buzz"*(not number%5) or number)
+    return [("Fizz"*(not number % 3) + "Buzz"*(not number % 5) or number)
             for number in range(1, n+1)]
-
-
-print(fizzbuzz(-15))

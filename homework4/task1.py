@@ -16,10 +16,8 @@ def read_magic_number(path: str) -> bool:
     try:
         with open(path) as file:
             first_line = file.readline()
-            return 1 <= float(first_line) < 3
-
-    except ValueError:
-        return False
-
     except Exception:
         raise ValueError("Something strange happened")
+
+    return (first_line.replace(".", "").isdigit() and
+            1 <= float(first_line) < 3)
