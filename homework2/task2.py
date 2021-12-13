@@ -11,16 +11,12 @@ Example 2:
 Input: [2,2,1,1,1,2,2]
 Output: 2, 1
 """
+from collections import Counter
 from typing import List, Tuple
 
 
 def major_and_minor_elem(inp: List) -> Tuple[int, int]:
-    count = {}
-    for x in inp:
-        if x not in count:
-            count[x] = 1
-        else:
-            count[x] += 1
+    count = Counter(inp)
     # Check which element is most common and rarest
     common = 0
     result_common = 0

@@ -6,7 +6,6 @@ Given a file containing text. Complete using only default collections:
     4) Count every non ascii char
     5) Find most common non ascii char for document
 """
-import cProfile
 import re
 import string
 import unicodedata
@@ -19,7 +18,7 @@ class Token:
         self.value = value
 
 
-def tokenize(file_content: str):
+def tokenize(file_content):
     word_buffer = ''
     for line in file_content:
         for symbol in line:
@@ -38,11 +37,6 @@ def open_file(file_path: str, encoding="UTF-8", errors="replace"):
 
 
 def get_longest_diverse_words(file_path: str) -> List[str]:
-    # 233818482 function calls (233818481 primitive calls) in 107.706 seconds
-    # 167606196 function calls (167606195 primitive calls) in 92.205 seconds
-    # 138328794 function calls (138328793 primitive calls) in 70.745 seconds
-    # 138328794 function calls (138328793 primitive calls) in 69.932 seconds
-    # 138328794 function calls (138328793 primitive calls) in 67.214 seconds
     d_words = {}
     for token in tokenize(open_file(file_path, encoding="unicode-escape")):
         # Count amount of every word's unique characters
@@ -66,7 +60,6 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
 
 
 def get_rarest_char(file_path: str) -> str:
-    # 66178 function calls in 8.520 seconds
     symbol_frequency = {}
     for line in open_file(file_path, encoding="unicode-escape"):
         for char in line:
@@ -79,7 +72,6 @@ def get_rarest_char(file_path: str) -> str:
 
 
 def count_punctuation_chars(file_path: str) -> int:
-    # 66177 function calls in 2.457 seconds
     punctuation_chars = set(string.punctuation)
     count_punc = 0
     for line in open_file(file_path, encoding="unicode-escape"):
@@ -90,7 +82,6 @@ def count_punctuation_chars(file_path: str) -> int:
 
 
 def count_non_ascii_chars(file_path: str) -> int:
-    # 316183 function calls in 0.848 seconds
     non_ascii_chars = []
     for line in open_file(file_path, encoding="unicode-escape"):
         non_ascii_chars.extend(re.findall(r'[^\x00-\x7F]', line))
@@ -98,7 +89,6 @@ def count_non_ascii_chars(file_path: str) -> int:
 
 
 def get_most_common_non_ascii_char(file_path: str) -> str:
-    # 266182 function calls in 0.737 seconds
     non_ascii_chars = {}
     for line in open_file(file_path, encoding="unicode-escape"):
         string_of_chars = re.findall(r'[^\x00-\x7F]', line)
@@ -109,10 +99,3 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
                 non_ascii_chars[char] = 1
     return max(non_ascii_chars,
                key=non_ascii_chars.get) if non_ascii_chars != {} else ''
-
-
-# def a():
-#   for _ in tokenize(open_file('../tests/homework2/test_task1_cases/5.csv', encoding="unicode-escape")):
-    #      pass
-
-cProfile.run("get_longest_diverse_words('../tests/homework2/test_task1_cases/5.csv')")
