@@ -11,7 +11,8 @@ it is treated as number.
 Write a wrapper class for this key value storage
 that works like this:
 
-storage = KeyValueStorage('path_to_file.txt') that has its keys and values accessible
+storage = KeyValueStorage('path_to_file.txt')
+that has its keys and values accessible
 as collection items and as attributes. Example:
 storage['name'] # will be string 'kek'
 storage.song_name # will be 'shadilay'
@@ -32,14 +33,14 @@ song=shadilay
 from keyword import iskeyword
 
 
-class Reader:
+class KeyValueStorage:
     def __init__(self, file_path: str):
         self.file_path = file_path
 
         self.text = self.reading_text_lines(file_path)
         try:
             self.dict = self.making_dict_from_text(self.text)
-        except Exception as e:
+        except Exception:
             ValueError("Some problem happened!")
 
         if not all(map(self.validate_key, self.dict.keys())):
@@ -73,7 +74,6 @@ class Reader:
                 value = int(value)
 
             file_dict[key] = value
-            # TODO add set_attribute
 
         return file_dict
 
@@ -83,39 +83,3 @@ class Reader:
 
     def __getitem__(self, key):
         return self.dict[key]
-
-    # Redundant code which i wrote because understood task wrong
-    def __setitem__(self, key, value):
-        """ Set self[key] to value. """
-
-        self.put(key, value)
-
-    def put(self, key, value):
-        try:
-
-            if not self.validate_key(key):
-                raise ValueError("Wrong property name!")
-
-            if hasattr(self, key) and key not in self.dict:
-                raise ValueError("Name clashes with standard attribute name!")
-
-            if value.replace(".", "").isdigit():
-                value = float(value)
-
-            if value.isdigit():
-                value = int(value)
-
-            setattr(self, "key", value)
-
-            self.dict[key] = value
-
-            self.save_dict_to_file()
-
-        except Exception as e:
-            # it should handle exception from code responsible
-            # for saving into database
-            raise ValueError("Some problem happened")
-
-    def save_dict_to_file(self):
-        with open(self.file_path, "w") as f:
-            f.writelines((f"{k}={v}\n" for k, v in self.dict.items()))
