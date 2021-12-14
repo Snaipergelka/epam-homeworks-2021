@@ -2,7 +2,8 @@ import sqlite3
 from typing import Iterable
 
 
-# TODO should be implemented
+# Should be implemented
+# but I am not sure about how to do it
 def sanitize_table_name(table_name: str) -> str:
     return table_name
 
@@ -37,7 +38,6 @@ class TableData(Iterable):
         return rows
 
     def __iter__(self):
-
         self.cursor = self.connection.cursor()
         string_select = 'SELECT * from ' + sanitize_table_name(self.table_name)
         self.cursor.execute(string_select)
@@ -55,12 +55,3 @@ class TableData(Iterable):
 
     def __del__(self):
         self.connection.close()
-
-
-if __name__ == "__main__":
-    table = TableData(database_name='example.sqlite', table_name='presidents')
-    print(table['Yeltsin'])
-    for x in table:
-        print(x)
-
-    print('Yeltsin' in table)

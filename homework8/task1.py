@@ -36,50 +36,53 @@ from keyword import iskeyword
 class KeyValueStorage:
     def __init__(self, file_path: str):
         self.file_path = file_path
+        lines = self.reading_text_lines(file_path)
+        pairs = [self.__convert_line_to_pairs(line) for line in lines]
 
-        self.text = self.reading_text_lines(file_path)
-        try:
-            self.dict = self.making_dict_from_text(self.text)
-        except Exception:
-            ValueError("Some problem happened!")
+        # validate pairs for key validity
+        if not all(map(lambda x: self.validate_key(x[0]), pairs)):
+            raise ValueError("Not valid Key")
 
-        if not all(map(self.validate_key, self.dict.keys())):
-            raise ValueError("Some problem happened!")
+        self.__internal_storage = dict(pairs)
 
-        for k, v in self.dict.items():
-            if hasattr(self, k) and k not in self.dict:
-                raise ValueError("Name clashes with standard attribute name!")
-
+        for k, v in self.__internal_storage.items():
             setattr(self, k, v)
 
     @staticmethod
     def reading_text_lines(file_path: str):
-
         file = open(file_path)
         file_text = file.readlines()
         file.close()
         return file_text
 
     @staticmethod
-    def making_dict_from_text(text):
+    def __convert_line_to_pairs(line: str):
+        key, value = line.replace("\n", "").split("=")
+        # condition for case when value is int
+        if type(value) is str and value.isdigit():
+            return key, int(value)
 
-        file_dict = {}
-        for word in text:
-            key, value = word.replace("\n", "").split("=")
+        # condition for case when value is float
+        if type(value) is str and "." in value and \
+                value.replace(".", "").isdigit():
+            return key, float(value)
 
-            if "." in value and value.replace(".", "").isdigit():
-                value = float(value)
-
-            if type(value) is str and value.isdigit():
-                value = int(value)
-
-            file_dict[key] = value
-
-        return file_dict
+        return key, value
 
     @staticmethod
     def validate_key(key):
-        return type(key) is str and (not iskeyword(key)) and key.isidentifier()
+        """
+        Checks conditions:
+            1. if key is str, it is needed to create attribute
+            2. if key is suitable identifier
+            3. if key is not built-in attribute
+        """
+        return (
+                type(key) is str
+                and (not iskeyword(key))
+                and key.isidentifier()
+                and key not in dir(object)
+        )
 
     def __getitem__(self, key):
-        return self.dict[key]
+        return self.__internal_storage[key]
