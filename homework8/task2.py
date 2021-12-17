@@ -5,12 +5,13 @@ from typing import Iterable
 # Should be implemented
 # but I am not sure about how to do it
 def sanitize_table_name(table_name: str) -> str:
+
     return table_name
 
 
 class TableData(Iterable):
 
-    def __init__(self, database_name, table_name):
+    def __init__(self, database_name: str, table_name: str):
         self.database_name = database_name
         self.table_name = table_name
         self.connection = sqlite3.connect(self.database_name)

@@ -31,6 +31,7 @@ power=9001
 song=shadilay
 """
 from keyword import iskeyword
+from typing import Any
 
 
 class KeyValueStorage:
@@ -70,9 +71,9 @@ class KeyValueStorage:
         return key, value
 
     @staticmethod
-    def validate_key(key):
+    def validate_key(key: Any):
         """
-        Checks conditions:
+        Checks if key in pair key, value is valid by conditions:
             1. if key is str, it is needed to create attribute
             2. if key is suitable identifier
             3. if key is not built-in attribute
