@@ -5,7 +5,6 @@ from typing import Iterable
 # Should be implemented
 # but I am not sure about how to do it
 def sanitize_table_name(table_name: str) -> str:
-
     return table_name
 
 
