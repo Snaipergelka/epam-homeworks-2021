@@ -1,0 +1,303 @@
+<tr>
+						<td class="table__td table__td--big">
+<a href="/stocks/abbv-stock" title="AbbVie Inc">AbbVie Inc</a>
+						</td>
+						<td class="table__td">
+118.00<br>
+117.98
+						</td>
+						<td class="table__td">
+116.92<br>
+118.18
+						</td>
+						<td class="table__td">
+<span class="colorGreen">0.02</span><br>
+<span class="colorGreen">0.02%</span>
+						</td>
+						<td class="table__td">
+<span>05:31 AM</span><span style="display:none" rel="localdatetime" format="hh:mm tt">12/27/2021 05:31:59 AM UTC-0500</span><br>
+27.12.2021
+						</td>
+						<td class="table__td">
+<span class="colorGreen">24.73</span><br>
+<span class="colorGreen">23.05%</span>
+						</td>
+						<td class="table__td">
+<span class="colorGreen">18.09</span><br>
+<span class="colorGreen">15.88%</span>
+						</td>
+						<td class="table__td">
+<span class="colorGreen">28.78</span><br>
+<span class="colorGreen">27.87%</span>
+						</td>
+				</tr>
+
+<tr>
+						<td class="table__td table__td--big">
+<a href="/stocks/ajg-stock" title="Arthur J. Gallagher &amp; Co.">Arthur J. Gallagher &amp; Co.</a>
+						</td>
+						<td class="table__td">
+146.00<br>
+146.00
+						</td>
+						<td class="table__td">
+146.00<br>
+146.00
+						</td>
+						<td class="table__td">
+<span class="colorDefault">0.00</span><br>
+<span class="colorDefault">0.00%</span>
+						</td>
+						<td class="table__td">
+<span>02:16 AM</span><span style="display:none" rel="localdatetime" format="hh:mm tt">12/27/2021 02:16:59 AM UTC-0500</span><br>
+27.12.2021
+						</td>
+						<td class="table__td">
+<span class="colorGreen">12.92</span><br>
+<span class="colorGreen">8.48%</span>
+						</td>
+						<td class="table__td">
+<span class="colorGreen">24.71</span><br>
+<span class="colorGreen">17.58%</span>
+						</td>
+						<td class="table__td">
+<span class="colorGreen">42.26</span><br>
+<span class="colorGreen">34.36%</span>
+						</td>
+				</tr>
+
+<div class="finando_paging margin-top--small">
+		Page: <a href="?p=1"><strong>1</strong></a> | <a href="?p=2">2</a>&nbsp;<a href="?p=2"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="pager_next lazy" alt="Next" data-original="/Images/icons/paging/next.gif"></a>
+	</div>
+
+<div class="price-section__row"><h1 class="price-section__identifiers"><span class="price-section__label">AbbVie Inc</span><span class="price-section__category">Stock <span>, ABBV</span></span></h1><div class="price-section__values"><span class="price-section__current-value">134.83</span><!----><span class="price-section__breakpoint"></span><span class="price-section__absolute-value">+0.43</span><span class="price-section__relative-value">+0.32%</span></div><div class="price-section__additionals"><span></span><div data-source="mdsng" id="eaad3691d_b1b6_46ac_8cd5_54f2c9ff74e6" class="" data-item="Y010149B00020145667" data-field="LastTimestamp" data-room="RY010149B00020145667" data-table="1" data-template="LastTimestamp" vue-name="eaad3691d_b1b6_46ac_8cd5_54f2c9ff74e6" data-v-9de5f4ce=""><span class="push-data" data-animation="animationType:none" data-format="" data-v-9de5f4ce="">11:39:18 AM</span></div><span class="padding-left--smaller">NYSE</span></div></div>
+
+<div class="snapshot">
+			<div class="snapshot__data-item">
+				0.00
+				<div class="snapshot__header">Bid</div>
+			</div>
+			<div class="snapshot__data-item">
+				0.00
+				<div class="snapshot__header">Bid Size</div>
+			</div>
+			<div class="snapshot__data-item">
+				0.00
+				<div class="snapshot__header">Ask</div>
+			</div>
+			<div class="snapshot__data-item">
+				0.00
+				<div class="snapshot__header">Ask Size</div>
+			</div>
+			<div class="snapshot__data-item">
+				12/28/2021
+				<div class="snapshot__header">Date</div>
+			</div>
+			<div class="snapshot__data-item">
+				11:38 AM
+				<div class="snapshot__header">Time</div>
+			</div>
+			<div class="snapshot__data-item">
+				0.00
+				<div class="snapshot__header">Volume</div>
+			</div>
+			<div class="snapshot__data-item">
+				134.40
+				<div class="snapshot__header">Prev. Close</div>
+			</div>
+			<div class="snapshot__data-item">
+				134.39
+				<div class="snapshot__header">Open</div>
+			</div>
+			<div class="snapshot__data-item">
+				215.95 B
+				<div class="snapshot__header">Market Cap</div>
+			</div>
+			<div class="snapshot__data-item">
+				1.77 B
+				<div class="snapshot__header">Number of Shares</div>
+			</div>
+					<div class="snapshot__line"></div>
+		<div id="snapshot-highlow" class="snapshot__highlow-container">
+				<div class="snapshot__highlow">
+					<div class="snapshot__data-item snapshot__data-item--small">
+						134.32
+						<div class="snapshot__header">Day Low</div>
+					</div>
+					<div class="snapshot__data-item snapshot__data-item--small snapshot__data-item--right">
+						135.25
+						<div class="snapshot__header">Day High</div>
+					</div>
+					<div class="progress progress--54-percent">
+						<div class="progress__bar"></div>
+						<div class="progress__position">
+							<div class="progress__marker"></div>
+							<div class="progress__label snapshot__price-label">134.82</div>
+						</div>
+					</div>
+				</div>
+							<div class="snapshot__highlow">
+					<div class="snapshot__data-item snapshot__data-item--small">
+						101.81
+						<div class="snapshot__header">52 Week Low</div>
+					</div>
+					<div class="snapshot__data-item snapshot__data-item--small snapshot__data-item--right">
+						135.25
+						<div class="snapshot__header">52 Week High</div>
+					</div>
+					<div class="progress progress--99-percent">
+						<div class="progress__bar"></div>
+						<div class="progress__position">
+							<div class="progress__marker"></div>
+							<div class="progress__label snapshot__price-label">134.82</div>
+						</div>
+					</div>
+				</div>
+		</div>
+						<div class="snapshot__line"></div>
+			<div class="snapshot__data-item">
+				5.22
+				<div class="snapshot__header">Dividend</div>
+			</div>
+			<div class="snapshot__data-item">
+				4.80
+				<div class="snapshot__header">Dividend Yield</div>
+			</div>
+			<div class="snapshot__data-item">
+				9.91
+				<div class="snapshot__header">P/E Ratio</div>
+			</div>
+			<div class="snapshot__data-item">
+				99.80
+				<div class="snapshot__header">Free Float in %</div>
+			</div>
+			<div class="snapshot__data-item">
+				12.67
+				<div class="snapshot__header">EPS 2021</div>
+			</div>
+			<div class="snapshot__data-item">
+				10.01
+				<div class="snapshot__header">Book Value per Share</div>
+			</div>
+			<div class="snapshot__data-item">
+				13.45
+				<div class="snapshot__header">Cash Flow per Share</div>
+			</div>
+	</div>
+
+<div class="price-section__row"><h1 class="price-section__identifiers"><span class="price-section__label">Arthur J. Gallagher &amp; Co.</span><span class="price-section__category">Stock <span>, AJG</span></span></h1><div class="price-section__values"><span class="price-section__current-value">170.35</span><!----><span class="price-section__breakpoint"></span><span class="price-section__absolute-value">-0.16</span><span class="price-section__relative-value">-0.10%</span></div><div class="price-section__additionals"><span></span><div data-source="mdsng" id="ef2bfc539_e81e_4b60_9fc4_44922192e357" class="" data-item="Y010149B000932379" data-field="LastTimestamp" data-room="RY010149B000932379" data-table="1" data-template="LastTimestamp" vue-name="ef2bfc539_e81e_4b60_9fc4_44922192e357" data-v-9de5f4ce=""><span class="push-data" data-animation="animationType:none" data-format="" data-v-9de5f4ce="">11:40:16 AM</span></div><span class="padding-left--smaller">NYSE</span></div></div>
+
+<div class="snapshot">
+			<div class="snapshot__data-item">
+				0.00
+				<div class="snapshot__header">Bid</div>
+			</div>
+			<div class="snapshot__data-item">
+				0.00
+				<div class="snapshot__header">Bid Size</div>
+			</div>
+			<div class="snapshot__data-item">
+				0.00
+				<div class="snapshot__header">Ask</div>
+			</div>
+			<div class="snapshot__data-item">
+				0.00
+				<div class="snapshot__header">Ask Size</div>
+			</div>
+			<div class="snapshot__data-item">
+				12/28/2021
+				<div class="snapshot__header">Date</div>
+			</div>
+			<div class="snapshot__data-item">
+				11:35 AM
+				<div class="snapshot__header">Time</div>
+			</div>
+			<div class="snapshot__data-item">
+				0.00
+				<div class="snapshot__header">Volume</div>
+			</div>
+			<div class="snapshot__data-item">
+				170.52
+				<div class="snapshot__header">Prev. Close</div>
+			</div>
+			<div class="snapshot__data-item">
+				170.95
+				<div class="snapshot__header">Open</div>
+			</div>
+			<div class="snapshot__data-item">
+				35.16 B
+				<div class="snapshot__header">Market Cap</div>
+			</div>
+			<div class="snapshot__data-item">
+				207.28 M
+				<div class="snapshot__header">Number of Shares</div>
+			</div>
+					<div class="snapshot__line"></div>
+		<div id="snapshot-highlow" class="snapshot__highlow-container">
+				<div class="snapshot__highlow">
+					<div class="snapshot__data-item snapshot__data-item--small">
+						169.61
+						<div class="snapshot__header">Day Low</div>
+					</div>
+					<div class="snapshot__data-item snapshot__data-item--small snapshot__data-item--right">
+						170.96
+						<div class="snapshot__header">Day High</div>
+					</div>
+					<div class="progress progress--33-percent">
+						<div class="progress__bar"></div>
+						<div class="progress__position">
+							<div class="progress__marker"></div>
+							<div class="progress__label snapshot__price-label">170.05</div>
+						</div>
+					</div>
+				</div>
+							<div class="snapshot__highlow">
+					<div class="snapshot__data-item snapshot__data-item--small">
+						112.93
+						<div class="snapshot__header">52 Week Low</div>
+					</div>
+					<div class="snapshot__data-item snapshot__data-item--small snapshot__data-item--right">
+						171.18
+						<div class="snapshot__header">52 Week High</div>
+					</div>
+					<div class="progress progress--98-percent">
+						<div class="progress__bar"></div>
+						<div class="progress__position">
+							<div class="progress__marker"></div>
+							<div class="progress__label snapshot__price-label">170.05</div>
+						</div>
+					</div>
+				</div>
+		</div>
+						<div class="snapshot__line"></div>
+			<div class="snapshot__data-item">
+				1.92
+				<div class="snapshot__header">Dividend</div>
+			</div>
+			<div class="snapshot__data-item">
+				1.39
+				<div class="snapshot__header">Dividend Yield</div>
+			</div>
+			<div class="snapshot__data-item">
+				25.54
+				<div class="snapshot__header">P/E Ratio</div>
+			</div>
+			<div class="snapshot__data-item">
+				98.83
+				<div class="snapshot__header">Free Float in %</div>
+			</div>
+			<div class="snapshot__data-item">
+				5.42
+				<div class="snapshot__header">EPS 2021</div>
+			</div>
+			<div class="snapshot__data-item">
+				39.00
+				<div class="snapshot__header">Book Value per Share</div>
+			</div>
+			<div class="snapshot__data-item">
+				4.96
+				<div class="snapshot__header">Cash Flow per Share</div>
+			</div>
+	</div>
+
+	<div xmlns="http://www.w3.org/1999/xhtml" class="folder" id="folder11"><div class="line"><span class="folder-button fold"></span><span class="html-tag">&lt;Valute<span class="html-attribute"> <span class="html-attribute-name">ID</span>="<span class="html-attribute-value">R01235</span>"</span>&gt;</span></div><div class="opened"><div class="line"><span class="html-tag">&lt;NumCode&gt;</span><span>840</span><span class="html-tag">&lt;/NumCode&gt;</span></div><div class="line"><span class="html-tag">&lt;CharCode&gt;</span><span>USD</span><span class="html-tag">&lt;/CharCode&gt;</span></div><div class="line"><span class="html-tag">&lt;Nominal&gt;</span><span>1</span><span class="html-tag">&lt;/Nominal&gt;</span></div><div class="line"><span class="html-tag">&lt;Name&gt;</span><span>Доллар США</span><span class="html-tag">&lt;/Name&gt;</span></div><div class="line"><span class="html-tag">&lt;Value&gt;</span><span>73,2329</span><span class="html-tag">&lt;/Value&gt;</span></div></div><span class="folded hidden">...</span><div class="line"><span class="html-tag">&lt;/Valute&gt;</span></div></div>

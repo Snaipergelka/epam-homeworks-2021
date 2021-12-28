@@ -354,8 +354,8 @@ def top_10_income(all_companies_info):
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
-    data = get_load_return_all_data(
-        'https://markets.businessinsider.com/index/components/s&p_500'
+    data = loop.run_until_complete(get_load_return_all_data(
+        'https://markets.businessinsider.com/index/components/s&p_500')
     )
     top_10_income(data)
     top_10_one_year_change(data)
