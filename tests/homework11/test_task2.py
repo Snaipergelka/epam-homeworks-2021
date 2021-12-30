@@ -8,7 +8,7 @@ def test_strategies():
     """
     order_1 = Order(100, morning_discount)
     order_2 = Order(100, elder_discount)
-    assert order_2.final_price() == 10 and order_1.final_price() == 75
+    assert order_2.final_price == 10 and order_1.final_price == 75
 
 
 def discrimination_strategy(order):
@@ -21,4 +21,4 @@ def test_setting_new_strategy():
         new strategies.
     """
     order = Order(50, discrimination_strategy)
-    assert order.final_price() == 100
+    assert order.final_price == 100

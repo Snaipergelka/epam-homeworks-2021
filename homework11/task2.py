@@ -31,6 +31,7 @@ class Order:
         self.price = price
         self.discount = discount_strategy
 
+    @property
     def final_price(self):
         """
             This method creates Context instance sets and executes

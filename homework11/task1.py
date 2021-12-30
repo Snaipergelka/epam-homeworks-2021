@@ -33,19 +33,6 @@ class SimplifiedEnum(type):
 
         key_field = "__keys"
         enum_attrs = attrs["_" + clsname + key_field]
-
-        for attr in enum_attrs:
-            try:
-                if not attr.isidentifier():
-                    raise SyntaxError(
-                        f"{attr}, {type(attr)} can not be attribute."
-                    )
-
-            except (SyntaxError, AttributeError):
-                raise SyntaxError(
-                    f"{attr}, {type(attr)} can not be attribute."
-                )
-
         attrs.update({attr: attr for attr in enum_attrs})
 
         return type(clsname, bases, attrs, **kwargs)
