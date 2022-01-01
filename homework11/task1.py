@@ -25,17 +25,13 @@ assert SizesEnum.XL == "XL"
 
 class SimplifiedEnum(type):
     """
-        This metaclass creates class with attributes from __keys
-        and checks if they are valid.
+        This metaclass creates class with attributes from __keys.
     """
-    def __new__(cls, *args, **kwargs):
-        clsname, bases, attrs = args
+    def __new__(cls, name, bases, dct):
+        enum_attrs = dct[f"_{name}__keys"]
+        dct.update({attr: attr for attr in enum_attrs})
 
-        key_field = "__keys"
-        enum_attrs = attrs["_" + clsname + key_field]
-        attrs.update({attr: attr for attr in enum_attrs})
-
-        return type(clsname, bases, attrs, **kwargs)
+        return type(name, bases, dct)
 
 
 class ColorsEnum(metaclass=SimplifiedEnum):
