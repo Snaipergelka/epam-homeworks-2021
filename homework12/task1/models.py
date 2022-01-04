@@ -23,6 +23,7 @@ class Homework(models.Model):
     text = models.CharField(max_length=200)
     deadline = models.DateTimeField()
     created = models.DateTimeField()
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
 
     @classmethod
     def create(cls, text, deadline: datetime.timedelta):
