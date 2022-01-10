@@ -35,26 +35,27 @@ from typing import Any
 
 
 class KeyValueStorage:
+
     def __init__(self, file_path: str):
         self.file_path = file_path
-        lines = self.reading_text_lines(file_path)
-        pairs = [self.__convert_line_to_pairs(line) for line in lines]
+        self.__internal_storage = self.make_dict_pairs()
+
+    def __getattr__(self, key):
+        return self.__internal_storage[key]
+
+    def make_dict_pairs(self) -> dict:
+        text_lines_from_file = self.reading_text_lines()
+        pairs_from_lines = [self.__convert_line_to_pairs(line)
+                            for line in text_lines_from_file]
 
         # validate pairs for key validity
-        if not all(map(lambda x: self.validate_key(x[0]), pairs)):
+        if not all((self.validate_key(x[0]) for x in pairs_from_lines)):
             raise ValueError("Not valid Key")
+        return dict(pairs_from_lines)
 
-        self.__internal_storage = dict(pairs)
-
-        for k, v in self.__internal_storage.items():
-            setattr(self, k, v)
-
-    @staticmethod
-    def reading_text_lines(file_path: str):
-        file = open(file_path)
-        file_text = file.readlines()
-        file.close()
-        return file_text
+    def reading_text_lines(self):
+        with open(self.file_path) as file:
+            return file.readlines()
 
     @staticmethod
     def __convert_line_to_pairs(line: str):

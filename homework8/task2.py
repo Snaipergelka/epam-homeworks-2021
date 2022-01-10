@@ -1,10 +1,13 @@
 import sqlite3
-from typing import Iterable
+import string
+from typing import Iterable, List, Optional
 
 
-# Should be implemented
-# but I am not sure about how to do it
+# Plain filter for validating table names
 def sanitize_table_name(table_name: str) -> str:
+    for char in table_name:
+        if char in string.punctuation:
+            raise ValueError("Not valid table name")
     return table_name
 
 
@@ -15,17 +18,17 @@ class TableData(Iterable):
         self.table_name = table_name
         self.connection = sqlite3.connect(self.database_name)
 
-    def __getitem__(self, key):
+    def __getitem__(self, key: str) -> Optional[str]:
         rows = self.__select_name(key)
         return rows[0] if rows else None
 
-    def __contains__(self, item):
+    def __contains__(self, item: str) -> bool:
         rows = self.__select_name(item)
         return len(rows) > 0
 
     # implemented as select * where name=? because
     # db backend is more optimized
-    def __select_name(self, name):
+    def __select_name(self, name: str) -> List[str]:
         cursor = self.connection.cursor()
 
         string_select = 'SELECT * from ' + \
@@ -43,7 +46,7 @@ class TableData(Iterable):
         self.cursor.execute(string_select)
         return self
 
-    def __next__(self):
+    def __next__(self) -> dict:
         next_row = self.cursor.fetchone()
         names = list(map(lambda x: x[0], self.cursor.description))
 
