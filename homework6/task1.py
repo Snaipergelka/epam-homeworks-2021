@@ -10,21 +10,46 @@ reset_instances_counter - сбросить счетчик экземпляров
 
 
 def instances_counter(cls):
+    """
+        Decorator that counts class instances by adding to
+        wrapped class init counter.
+
+        :param Class cls: class that we want to wrap
+        :return cls: wrapped class
+        :rtype Class:
+    """
     # Creating counter var
     counter = [0]
     # Coping decorated class init
     cls_init = cls.__init__
 
     def get_created_instances(cls):
+        """
+            :param Class cls: class we need to wrap
+            :return: counter number of created instances
+            :rtype: List[int]
+        """
         return counter[0]
 
     def reset_instances_counter(cls):
+        """
+            :param Class cls: class we need to wrap
+            :return: temp - number of instances
+            :rtype: int|float
+        """
         temp = counter[0]
         counter[0] = 0
         return temp
 
     # Increase counter var in class init
     def __init__(self, *args, **kwargs):
+        """
+            Increase counter var in class init
+
+            :param self: wrapping class instance
+            :param args: wrapping class args
+            :param kwargs: wrapping class kwargs
+        """
         cls_init(self, *args, **kwargs)
         counter[0] = counter[0] + 1
 

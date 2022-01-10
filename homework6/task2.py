@@ -42,35 +42,101 @@ PEP8 соблюдать строго.
 """
 import datetime
 from collections import defaultdict
+from typing import Optional
 
 
 class Homework:
+    """
+        Class that creates Homework instance with
+        three attributes.
+        Attributes:
+            text - homework text
+            deadline - deadline for homework in days
+            created - datetime of creation of hw
+        """
     __slots__ = ["text", "deadline", "created"]
 
-    def __init__(self, text, deadline):
+    def __init__(self, text: str, deadline: int):
+        """
+            :param str text: homework text
+            :param int|float deadline: homework deadline in days
+        """
         self.text = text
         self.deadline = datetime.timedelta(days=deadline)
         self.created = datetime.datetime.today()
 
     def is_active(self):
+        """
+            :return: bool if the deadline was expired or not
+            :rtype: bool
+        """
         return (self.deadline + self.created) > datetime.datetime.today()
 
 
 class DeadlineError(Exception):
+    """
+        Class that creates deadline error object.
+    """
     pass
 
 
+class ClassError(Exception):
+    """
+        Class that creates class error object.
+    """
+    pass
+
+
+class HomeworkResult:
+    """
+        Class that creates Homework result instance with 4 attributes.
+        Attributes:
+            homework - class Homework instance
+            solution - text of homework solution
+            author - class Student instance
+            created - time of creation
+    """
+    __slots__ = ["homework", "solution", "author", "created"]
+
+    def __init__(self, homework: Homework, solution: str, author):
+        if isinstance(homework, Homework):
+            self.homework = homework
+        else:
+            raise ClassError("You gave a not Homework object")
+        self.solution = solution
+        self.author = author
+        self.created = homework.created
+
+
 class Person:
+    """
+        Class that creates instance person with two attributes.
+        Attributes:
+            last_name - person last name
+            first_name - person first name
+    """
     __slots__ = ["last_name", "first_name"]
 
-    def __init__(self, first_name, last_name):
+    def __init__(self, first_name: str, last_name: str):
         self.last_name = last_name
         self.first_name = first_name
 
 
 class Student(Person):
-
-    def do_homework(self, homework, solution):
+    """
+         Class creates Student instance which inherits from
+         class Person.
+    """
+    def do_homework(self, homework: Homework, solution: str) -> HomeworkResult:
+        """
+            Checks if homework is not expired and creates class HomeworkResult
+            instance with homework solution and raises DeadlineError
+            otherwise.
+            :param Homework homework: class Homework instance
+            :param str solution: string solution of homework
+            :return: class HomeworkResult instance
+            :rtype: HomeworkResult
+        """
         if homework.is_active():
             return HomeworkResult(homework, solution, self)
         else:
@@ -78,14 +144,35 @@ class Student(Person):
 
 
 class Teacher(Person):
+    """
+        Class creates Teacher instance which inherits from
+        class Person.
+    """
     homework_done = defaultdict(set)
 
     @staticmethod
-    def create_homework(text, deadline):
+    def create_homework(text: str, deadline: int) -> Homework:
+        """
+            Creates class Homework instance.
+            :param str text: homework text
+            :param int|float deadline: homework deadline in days
+            :return: class Homework instance
+            :rtype: Homework
+        """
         return Homework(text, deadline)
 
     @classmethod
-    def check_homework(cls, homework_result):
+    def check_homework(cls, homework_result: HomeworkResult):
+        """
+            Checks if homework result solution is valid by length and adds
+            to homework_done dict where key is Homework class instance,
+            value is set of HomeworkResult instances.
+
+            :param HomeworkResult homework_result: class HomeworkResult
+            instance
+            :return: bool if homework result solution is valid by length
+            :rtype: bool
+        """
         if len(homework_result.solution) > 5:
             if homework_result.homework not in cls.homework_done:
                 cls.homework_done[homework_result.homework] = set()
@@ -95,28 +182,16 @@ class Teacher(Person):
             return False
 
     @classmethod
-    def reset_results(cls, homework=None):
+    def reset_results(cls, homework: Optional[Homework]):
+        """
+            Resets homework results dicts if homework parameter is None.
+            Resets only homework_done[homework] otherwise.
+            :param Homework homework: Homework class instance
+        """
         if homework is None:
             cls.homework_done.clear()
         else:
             cls.homework_done.pop(homework, None)
-
-
-class ClassError(Exception):
-    pass
-
-
-class HomeworkResult:
-    __slots__ = ["homework", "solution", "author", "created"]
-
-    def __init__(self, homework: Homework, solution: str, author: Student):
-        if isinstance(homework, Homework):
-            self.homework = homework
-        else:
-            raise ClassError("You gave a not Homework object")
-        self.solution = solution
-        self.author = author
-        self.created = homework.created
 
 
 if __name__ == '__main__':
