@@ -34,29 +34,63 @@ PEP8 соблюдать строго.
 давать логичные подходящие имена.
 """
 import datetime
+from typing import Optional
 
 
 class Homework:
+    """
+        Class that creates Homework instance with
+        three attributes.
+        Attributes:
+            text - homework text
+            deadline - deadline for homework in days
+            created - datetime of creation of hw
+    """
     __slots__ = ["text", "deadline", "created"]
 
-    def __init__(self, text, deadline):
+    def __init__(self, text: str, deadline: int):
+        """
+            :param str text: homework text
+            :param int|float deadline: homework deadline in days
+        """
         self.text = text
         self.deadline = datetime.timedelta(days=deadline)
         self.created = datetime.datetime.today()
 
-    def is_active(self):
+    def is_active(self) -> bool:
+        """
+            :return: bool if the deadline was expired or not
+            :rtype: bool
+        """
         return (self.deadline + self.created) > datetime.datetime.today()
 
 
 class Student:
+    """
+        Class creates Student instance with two attributes.
+        Attributes:
+            last_name - student last name
+            first_name - student first name
+    """
     __slots__ = ["last_name", "first_name"]
 
-    def __init__(self, first_name, last_name):
+    def __init__(self, first_name: str, last_name: str):
+        """
+            :param str first_name: student last name
+            :param str last_name: student first name
+        """
         self.last_name = last_name
         self.first_name = first_name
 
     @staticmethod
-    def do_homework(homework):
+    def do_homework(homework: Homework) -> Optional[Homework]:
+        """
+            Checks if homework is active.
+            :param homework: class Homework instance
+            :return: homework class instance homework is active
+            or None if not
+            :rtype: None|homework
+        """
         if homework.is_active():
             return homework
         else:
@@ -65,14 +99,31 @@ class Student:
 
 
 class Teacher:
+    """
+        Class creates Teacher instance with two attributes.
+        Attributes:
+            last_name - teacher last name
+            first_name - teacher first name
+    """
     __slots__ = ["first_name", "last_name"]
 
-    def __init__(self, first_name, last_name):
+    def __init__(self, first_name: str, last_name: str):
+        """
+            :param str first_name: teacher first name
+            :param str last_name: teacher last name
+        """
         self.last_name = last_name
         self.first_name = first_name
 
     @staticmethod
-    def create_homework(text, deadline):
+    def create_homework(text: str, deadline: int) -> Homework:
+        """
+            Creates class Homework instance.
+            :param str text: homework text
+            :param int|float deadline: homework deadline in days
+            :return: class Homework instance
+            :rtype: Homework
+        """
         return Homework(text, deadline)
 
 
