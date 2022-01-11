@@ -28,14 +28,6 @@ async def get_text_website(website_url, session) -> Optional[str]:
             return response
 
 
-def make_soup(response) -> BeautifulSoup:
-    """
-        Parse html of the website.
-    """
-    soup = BeautifulSoup(response, "html.parser")
-    return soup
-
-
 def get_company_names_urls(website_html) -> Dict[str, str]:
     """
         Parse company names and company websites urls from main table.
@@ -215,7 +207,7 @@ async def get_load_return_all_data(first_page_website_url):
         # STEP 1: parsing main page with a table
         website_str = await get_text_website(first_page_website_url,
                                              session)
-        website_html = make_soup(website_str)
+        website_html = BeautifulSoup(website_str, "html.parser")
 
         logging.info('Extract all next pages '
                      'that contain other pieces of the table')
@@ -247,7 +239,7 @@ async def get_load_return_all_data(first_page_website_url):
         logging.info('Parsing info from every page')
 
         for html in pages_urls_htmls:
-            page_website_html = make_soup(html)
+            page_website_html = BeautifulSoup(html, "html.parser")
 
             all_companies_names_urls_dict.update(
                 get_company_names_urls(page_website_html))
@@ -290,7 +282,7 @@ def parse_info_from_company_page(company_website_str):
     """
         This function parse all required information from company card.
     """
-    company_website_html = make_soup(company_website_str)
+    company_website_html = BeautifulSoup(company_website_str, "html.parser")
     price = get_price(company_website_html)
     code_name = get_code_name(company_website_html)
     p_e = get_p_e(company_website_html)

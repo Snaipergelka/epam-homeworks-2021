@@ -36,7 +36,7 @@ def test_request():
                       <CharCode>USD</CharCode>
                       <Nominal>1</Nominal>
                       <Name>Доллар США</Name>
-                      <Value>73,4959</Value>
+                      <Value>75,1315</Value>
                       </Valute>"""
         m.get(cbr_pattern, body=cbr_text)
 
@@ -53,7 +53,7 @@ def test_request():
 
     assert resp == [
         {
-            'price': 9909.452197000002,
+            'price': 10129.980145000001,
             'code_name': 'ABBV',
             'p_e': 9.91,
             'income': 32.84549651311266,
@@ -61,7 +61,7 @@ def test_request():
             'one_year_result': 27.87
         },
         {
-            'price': 9909.452197000002,
+            'price': 10129.980145000001,
             'code_name': 'ABBV',
             'p_e': 9.91,
             'income': 32.84549651311266,
