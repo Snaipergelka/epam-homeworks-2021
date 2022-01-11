@@ -4,7 +4,7 @@ import re
 import aiohttp
 from aioresponses import aioresponses
 
-from homework10.task1 import get_load_return_all_data
+from homework10.task1 import BusinessInsiderParser
 
 
 def test_request():
@@ -13,7 +13,7 @@ def test_request():
         and saves in array of dicts.
     """
     loop = asyncio.get_event_loop()
-    aiohttp.ClientSession()
+    test_instance = BusinessInsiderParser(session=aiohttp.ClientSession())
 
     cbr_pattern = re.compile(r'^http://www.cbr.ru/scripts.*$')
 
@@ -47,13 +47,13 @@ def test_request():
             open("tests/homework10/html.txt").read()), repeat=True)
 
         resp = loop.run_until_complete(
-            get_load_return_all_data(
+            test_instance.get_load_return_all_data(
                 "https://markets.businessinsider.com/index/components/s&p_500")
         )
 
     assert resp == [
         {
-            'price': 10129.980145000001,
+            'price': 10090.070465,
             'code_name': 'ABBV',
             'p_e': 9.91,
             'income': 32.84549651311266,
@@ -61,7 +61,7 @@ def test_request():
             'one_year_result': 27.87
         },
         {
-            'price': 10129.980145000001,
+            'price': 10090.070465,
             'code_name': 'ABBV',
             'p_e': 9.91,
             'income': 32.84549651311266,
