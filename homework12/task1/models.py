@@ -12,11 +12,13 @@ class User(models.Model):
 
 
 class Student(User):
-    pass
+    def __str__(self):
+        return f"Student({self.first_name} {self.last_name})"
 
 
 class Teacher(User):
-    pass
+    def __str__(self):
+        return f"Teacher({self.first_name} {self.last_name})"
 
 
 class Homework(models.Model):
@@ -24,6 +26,10 @@ class Homework(models.Model):
     deadline = models.DateTimeField()
     created = models.DateTimeField()
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Homework(Teacher: {self.teacher} Text:{self.text} " \
+               f"Create: {self.created} Deadline: {self.deadline} )"
 
     @classmethod
     def create(cls, text, deadline: datetime.timedelta):
@@ -40,6 +46,12 @@ class HomeworkResult(models.Model):
     author = models.ForeignKey(Student, on_delete=models.CASCADE)
     created = models.DateTimeField()
     homework = models.ForeignKey(Homework, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"HomeworkResult(Homework: {self.homework}, " \
+               f"Author: {self.author}, " \
+               f"Date: {self.created}, " \
+               f"Solution: {self.solution})"
 
     @classmethod
     def create(cls, solution: str, author: Student, homework: Homework):
